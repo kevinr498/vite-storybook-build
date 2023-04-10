@@ -1,0 +1,14 @@
+# Use the official Hasura image as the base image
+FROM hasura/graphql-engine:v2.0.7
+
+# Set the environment variable for the PostgreSQL server URL
+ENV HASURA_GRAPHQL_DATABASE_URL postgres://postgres:TJTbcKS77CFuteL@database-1.cvhvzvs7gy41.us-east-2.rds.amazonaws.com:5432/postgres
+
+# Set the metadata label for the image
+LABEL org.label-schema.name="my-hasura-project"
+
+# Expose the Hasura console port
+EXPOSE 8080
+
+# Start the Hasura server
+CMD ["graphql-engine", "serve"]
